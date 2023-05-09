@@ -27,7 +27,7 @@ def answer_the_questions(name):
             if answer == "хочу":
                 return answer_the_questions(name)
             elif answer == "не хочу":
-                return ('Возвращайся если возникнут вопросы!')
+                return ('Возвращайся, если возникнут вопросы!')
         while is_valid_answer(answer) is False:
             print('Некорректный ответ')
             answer = input()
@@ -35,19 +35,19 @@ def answer_the_questions(name):
                 if answer == "хочу":
                     return answer_the_questions(name)
                 elif answer == "не хочу":
-                    return ('Возвращайся если возникнут вопросы!')
+                    return ('Возвращайся, если возникнут вопросы!')
 
 
 def read_input():
+    print('Привет Мир, я магический шар, и я знаю ответ на любой твой вопрос.')
+    print('Как вас зовут?')
     name: str = input()
+    print(f'Привет, {name}')
     return name
 
 
 def main():
-    print('Привет Мир, я магический шар, и я знаю ответ на любой твой вопрос.')
-    print('Как вас зовут?')
     name = read_input()
-    print(f'Привет, {name}')
     print(answer_the_questions(name))
 
 
