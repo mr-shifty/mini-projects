@@ -1,27 +1,35 @@
 import tkinter
+import webbrowser
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 
 import customtkinter as CTk
-from PIL import Image
-
 import password
+from PIL import Image
 
 
 class InfoWindow(CTk.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        h, w = 300, 100
         self.title("Инфо")
-        self.geometry("270x70")
+        self.geometry(f'{h}x{w}')
         self.resizable(False, False)
         self.label = CTk.CTkLabel(
             self,
-            text="Developed by Pavel Melnikov",
-            font=("arial", 16)
+            text="Developed by Pavel Melnikov\nGitHub(mr-shifty)",
+            text_color='blue',
+            font=("arial", 16),
+            cursor="hand2",
+
         )
         self.label.pack(
             padx=20,
             pady=20
         )
+        self.label.bind('<Button-1>', self.open_website)
+
+    def open_website(*args):
+        webbrowser.open_new_tab('https://github.com/mr-shifty')
 
 
 class App(CTk.CTk):
@@ -29,8 +37,9 @@ class App(CTk.CTk):
         super().__init__(*args, **kwargs)
 
         # Главное окно
+        h, w = 475, 370
         self.title("Генератор паролей")
-        self.geometry("475x370")
+        self.geometry(f'{h}x{w}')
         self.resizable(False, False)
         CTk.set_default_color_theme("green")
 
@@ -101,13 +110,13 @@ class App(CTk.CTk):
             columnspan=3,
             pady=(20, 20),
             sticky='ew'
-
         )
         # Ввод длинны пароля
         self.password_length_entry = CTk.CTkEntry(
            master=self.settings_frame,
-           width=50
+           width=50,
         )
+
         self.password_length_entry.grid(
             row=1,
             column=3,
@@ -116,6 +125,7 @@ class App(CTk.CTk):
         )
         self.password_length_slider.set(15)
         self.password_length_entry.insert(0, 15)
+        self.password_length_entry.bind('<KeyRelease>', self.update_slider)
         # Чекбокс чисел
         self.cb_digits_var = tkinter.StringVar()
         self.cb_digits = CTk.CTkCheckBox(
@@ -209,6 +219,10 @@ class App(CTk.CTk):
     def slider_event(self, value):
         self.password_length_entry.delete(0, "end")
         self.password_length_entry.insert(0, int(value))
+
+    def update_slider(self, value):
+        value = int(self.password_length_entry.get())
+        self.password_length_slider.set(value)
 
     def change_appearance_mode_event(self, new_appearance_mode):
         CTk.set_appearance_mode(new_appearance_mode)

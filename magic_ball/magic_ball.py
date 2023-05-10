@@ -21,7 +21,7 @@ def answer_the_questions(name):
     while True:
         answer = input()
         print(choice(answers))
-        print(f"{name}, Хотите задать еще вопрос?")
+        print(f"{name}, хотите задать еще вопрос?")
         answer = input()
         if is_valid_answer(answer):
             if answer == "хочу":
