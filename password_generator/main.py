@@ -209,12 +209,15 @@ class App(CTk.CTk):
         self.toplevel_window = None
 
     def set_password(self):
-        self.entry_password.delete(0, "end")
-        self.entry_password.insert(0, password.create_new(
-            length=int(self.password_length_slider.get()),
-            characters=self.get_characters()
+        try:
+            self.entry_password.delete(0, "end")
+            self.entry_password.insert(0, password.create_new(
+                length=int(self.password_length_slider.get()),
+                characters=self.get_characters()
+                )
             )
-        )
+        except IndexError:
+            self.entry_password.delete(0, "end")
 
     def slider_event(self, value):
         self.password_length_entry.delete(0, "end")
