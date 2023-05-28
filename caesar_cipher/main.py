@@ -8,12 +8,13 @@ class CaesarCiepher:
         self.quantity_chrs = 32
         for chars in message:
             if chars.isalpha():
-                encoded_char = chr((ord(chars) - self.first_chr + self.shift) % self.quantity_chrs + self.first_chr)
+                encoded_char = chr((ord(chars) - self.first_chr + self.shift)
+                                   % self.quantity_chrs + self.first_chr)
                 self.encrypted_message += encoded_char
             else:
                 self.encrypted_message += chars
         return self.encrypted_message
-    
+
 
 def main():
     message = "блажен, кто верует, тепло ему на свете!"
