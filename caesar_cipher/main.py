@@ -88,20 +88,21 @@ class CaesarCiepher:
 
 
 def main():
-    ru_message = "Блажен, кто верует, тепло ему на свете!"
-    ru_encrypt_message = "Шсъцхр щмчжмщ йшм, нмтзж йшм лхшщзщг."
-    en_message = "To be, or not to be, that is the question!"
-    en_encrypt_message = "Sgd fqzrr hr zkvzxr fqddmdq nm sgd nsgdq rhcd ne sgd edmbd."
-    shift = iter(0, 26)
+    # ru_message = "Блажен, кто верует, тепло ему на свете!"
+    # ru_encrypt_message = "Шсъцхр щмчжмщ йшм, нмтзж йшм лхшщзщг."
+    en_message = 'my name is Python!'
+    # en_encrypt_message = "Hawnj pk swhg xabkna ukq nqj."
+    shift = len(en_message)
+    # for shift in range(0, 26):
     ciepher = CaesarCiepher(shift)
-    ru_encripted_message = ciepher.ru_encrypt(ru_message)
-    ru_decrypted_message = ciepher.ru_descript(ru_encrypt_message)
+    # ru_encripted_message = ciepher.ru_encrypt(ru_message)
+    # ru_decrypted_message = ciepher.ru_descript(ru_encrypt_message)
     en_encripted_message = ciepher.en_encrypt(en_message)
-    en_decrypted_message = ciepher.en_descript(en_encrypt_message)
+    # en_decrypted_message = ciepher.en_descript(en_encrypt_message)
     # print(ru_encripted_message)
     # print(ru_decrypted_message)
-    # print(en_encripted_message)
-    print(en_decrypted_message)
+    print(en_encripted_message)
+    # print(en_decrypted_message)
 
 
 if __name__ == "__main__":
