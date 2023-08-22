@@ -1,4 +1,4 @@
-from colorama import init, Fore, Style
+from colorama import Fore, Style, init
 
 init()
 
@@ -7,12 +7,14 @@ def convert_to_decimal():
     num_set = '0123456789abcdef'
     result = 0
     base = int(input(
-        'Введите систему счисления, '
-        'из которой нужно перевести (от 2-ой до 16-ой)\n'
+        f'{Fore.BLUE}Введите систему счисления, '
+        f'из которой нужно перевести (от 2-ой до 16-ой){Style.RESET_ALL}\n'
         )
     )
 
-    number = input(f'Введите ваше число в {base}-ой системе счисления\n')[::-1]
+    number = input(
+        f'{Fore.BLUE}Введите ваше число в {base}-ой '
+        f'системе счисления\n{Style.RESET_ALL}')[::-1]
 
     for i in range(len(number)):
         result += num_set.find(number[i].lower()) * (base ** i)
@@ -70,10 +72,10 @@ def main():
             print(convert_from_decimal())
         elif decimal_answer == 'exit':
             break
-        continue_answer = input('Выполнить еще перевод? д/н\n')
-        if continue_answer == 'д'.lower():
+        continue_answer = input('Выполнить еще перевод? y/n\n')
+        if continue_answer == 'y'.lower():
             continue
-        elif continue_answer == 'н'.lower():
+        elif continue_answer == 'n'.lower():
             break
 
 

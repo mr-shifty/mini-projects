@@ -1,5 +1,5 @@
-import tkinter as tk
 import random
+import tkinter as tk
 
 
 class GuessNumber:

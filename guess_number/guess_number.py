@@ -1,5 +1,4 @@
-from random import randint, choice
-
+from random import choice, randint
 
 answers = [
     "Сколько можно!!! Нажми блин д/н?",
