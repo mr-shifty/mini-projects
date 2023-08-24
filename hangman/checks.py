@@ -1,3 +1,6 @@
+from colorama import Fore, Style
+
+
 def check_letter(word: str, guessed_letters: str) -> str:
     """Проверяет букву в слове."""
 
@@ -9,9 +12,15 @@ def check_letter(word: str, guessed_letters: str) -> str:
 
 
 def is_valid(letter: str) -> bool:
-    """Проверка на букву в вводе"""
+    """Проверка корректности ввода."""
 
-    if len(letter) == 0 or not letter.isalpha():
-        print('Вы ввели не букву')
+    if not letter.isalpha():
+        print(f'{Fore.RED}\nВвод некорректен, введите букву или слово целиком{Style.RESET_ALL}')
         return False
     return True
+
+
+def is_valid_answer(answer: str) -> None:
+    """Проверка на правильность ответа."""
+
+    return answer.isalpha() and answer == 'д' or answer == 'н'
