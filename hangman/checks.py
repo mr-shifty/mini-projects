@@ -15,7 +15,9 @@ def is_valid(letter: str) -> bool:
     """Проверка корректности ввода."""
 
     if not letter.isalpha():
-        print(f'{Fore.RED}\nВвод некорректен, введите букву или слово целиком{Style.RESET_ALL}')
+        print(
+            f'{Fore.RED}\nВвод некорректен, введите букву или слово целиком'
+            f'{Style.RESET_ALL}')
         return False
     return True
 
